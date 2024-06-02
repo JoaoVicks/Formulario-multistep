@@ -5,7 +5,8 @@ label{
     gap: 0.5rem;
     color: #17264D
 }
-input{
+input[type='email'],
+input[type = 'password'] {
     margin-bottom: 1.5rem;
     padding: 0.5rem 0.5rem;
     border-top: 0;
@@ -15,6 +16,13 @@ input{
     border-radius: 7.5px;
     outline: none;
     min-width: 350px;
+}
 
 
+.error{
+background-color: #fc93a9 ;
+}
+.error::placeholder{
+    color: white;
+    font-weight: 200;
 }

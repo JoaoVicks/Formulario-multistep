@@ -1,0 +1,50 @@
+.container-steps{
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    margin-top: 3rem;
+    position: relative;
+    max-width: 400px;
+}
+.step{
+    color: rgba(35, 48, 82, 0.596);
+    background-color: #fcded8;
+    text-align: center;
+    width: 120px;
+    padding: 0.5rem;
+    z-index: 2;
+    
+}
+.step::after{
+    content:'';
+    position: absolute;
+    width: 120px;
+    border-bottom: 1px solid  rgb(35, 48, 82);
+    margin-left: -3.6rem;
+    top:20px;
+    z-index: 1;
+}
+.step> svg{
+    z-index: 2;
+    background-color: #fcded8;
+    width: 50px;
+    fill:  rgba(35, 48, 82, 0.459);
+    font-size: 1.5rem;
+    position: relative;
+}
+.step > p{
+    font-size: 14px;
+    color:  rgba(35, 48, 82, 0.459)
+}
+
+.active > svg{
+    z-index: 2;
+    background-color: #fcded8;
+    width: 50px;
+    fill:  rgb(35, 48, 82);
+    font-size: 1.5rem;
+    position: relative;
+}
+.active > p{
+color: #233052;
+}
