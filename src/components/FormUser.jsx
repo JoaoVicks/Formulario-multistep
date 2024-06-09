@@ -3,7 +3,8 @@ import React from 'react'
 import '../styles/FormUser.css'
 import { MdOutlineEmail } from "react-icons/md";
 import { IoLockClosedOutline } from "react-icons/io5";
-const FormUser = () => {
+
+const FormUser = ({alterarDados,data}) => {
 
   const [verifiEmail, setVerifiEmail] = React.useState(true);
   const [verifiSenha, setVerifiSenha] = React.useState(true);
@@ -35,8 +36,9 @@ const FormUser = () => {
 
         <input className={verifiEmail !== false  ? '' : 'error'}
         type="email" placeholder='example@gmail.com'
-        onChange={(e) => verificationEmail(e)} 
+        onChange={(e) => {verificationEmail(e), alterarDados('email' , e.target.value)} }
         required
+        value={data.email || ''}
         />
 
       </label>
@@ -46,8 +48,9 @@ const FormUser = () => {
             className={verifiSenha !== false ? '' : 'error'}
             type="password"
             placeholder='example123'
-            onChange={verificationSenha} 
-            required />
+            onChange={(e)=>{verificationSenha(e), alterarDados( 'password',e.target.value)} }
+            required 
+            value={data.password || ''}/>
        
       </label>
 

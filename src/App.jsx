@@ -7,14 +7,28 @@ import { useSteps } from './Hooks/useSteps';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { IoSend } from "react-icons/io5";
 import Steps from './components/Steps';
-
+import { useState } from 'react';
 
 
 function App() {
 
+const dataList= {
+  email:"",
+  password:"",
+  reacao:"",
+  opinion:""
 
+}
 
-  const steps = [<FormUser />, <FormOpiniao />, <FormThanks />]
+const alterarDados = (key, valor)=>{
+setData((prev)=>{
+  return {...prev, [key]: valor}
+})
+}
+
+  const [data,setData]= useState(dataList)
+
+  const steps = [<FormUser data={data} alterarDados = {alterarDados} />, <FormOpiniao  data={data} alterarDados = {alterarDados} />, <FormThanks  data={data}/>]
   
   const { currentStep, currentComponent, changeSteps, firstStep, lastStep } = useSteps(steps)
 
@@ -23,7 +37,7 @@ function App() {
       <div className="header">
         <h2>Pesquisa de Satisfação</h2>
         <p>Nós agradecemos a sua preferência por escolher o nosso produto,
-          você poderia deixar sua opnião sobre a sua experiência com os nossos serviços ?</p>
+          você poderia deixar sua opinião sobre a sua experiência com os nossos serviços ?</p>
         <Steps currentStep={currentStep} />
       </div>
 
